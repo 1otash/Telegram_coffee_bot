@@ -189,6 +189,26 @@ def get_user_product_count(call):
     elif call.data == "back":
         bot.register_next_step_handler(call.message, coffee)
 
+
+@bot.callback_query_handler(lambda call: int(call.data) in database.get_pr_id())
+def get_user_product(call):
+    # Сохраним айди пользователя
+    user_id = call.message.chat.id
+
+    # Сохраним продукт во временный словарь
+    # call.data - значение нажатой кнопки(инлайн)
+    users[user_id] = {'pr_name': call.data, 'pr_count': 1}
+    print(users)
+
+    # Сохраним айди сообщения
+    message_id = call.message.message_id
+
+    # Поменять кнопки на выбор количества
+    bot.edit_message_text('Выберите количество',
+                          chat_id=user_id, message_id=message_id,
+                          reply_markup=buttons.image_buttons())
+
+
 @bot.callback_query_handler(lambda call: int(call.data) in database.get_pr_id())
 def get_user_product(call):
     # Сохраним айди пользователя

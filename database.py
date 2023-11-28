@@ -13,13 +13,13 @@ cafe.execute('CREATE TABLE IF NOT EXISTS users'
 
 # Создание таблицы продуктов
 cafe.execute('CREATE TABLE IF NOT EXISTS products'
-                  '(pr_id INTEGER PRIMARY KEY AUTOINCREMENT, pr_name TEXT, pr_price REAL, pr_quantity INTEGER,'
-                  ' reg_date DATETIME);')
+                  '(pr_id INTEGER PRIMARY KEY AUTOINCREMENT, pr_name TEXT, pr_price REAL, pr_quntity INTEGER, reg_date TEXT);')
 
 # Создание таблицы для корзины пользователя
 cafe.execute('CREATE TABLE IF NOT EXISTS user_cart'
                   '(user_id INTEGER, user_product TEXT, quantity INTEGER,'
                   'total_for_price REAL);')
+
 
 
 # Регистрация пользователя

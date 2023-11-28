@@ -9,7 +9,7 @@ def after_start():
     markup.add(menu, log_out)
     return markup
 
-def menu_menu(product):
+def menu_menu():
     buttons = types.ReplyKeyboardMarkup(resize_keyboard=True)
     coffee = types.KeyboardButton('Coffee')
     sweets = types.KeyboardButton('Sweets')
